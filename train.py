@@ -246,13 +246,13 @@ def main(args):
             if test_accuracy > best_accuracy:  # 以验证准确率为准
                 best_accuracy = test_accuracy
                 os.makedirs('checkpoints', exist_ok=True)
-                torch.save(model, f'checkpoints/{model_name}{epoch}-best.pth')
-                print(f'当前模型表现最佳，已保存至 checkpoints/{model_name}{epoch}-best.pth')
+                torch.save(model, f'checkpoints/{model_name}_{args.epochs}-best.pth')
+                print(f'当前模型表现最佳，已保存至 checkpoints/{model_name}_{args.epochs}-best.pth')
 
         # 保存模型
         os.makedirs('checkpoints', exist_ok=True)
         # torch.save(model.state_dict(), f'checkpoints/{model_name}-{args.epochs}.pth')
-        torch.save(model, f'checkpoints/{model_name}-{args.epochs}.pth')
+        torch.save(model, f'checkpoints/{model_name}-{args.epochs}-last.pth')
         print(f'保存{model_name}模型最后一轮训练后的结果在checkpoints/{model_name}-{args.epochs}-last.pth中')
         # 记录结果
         results[model_name] = {'train_accuracies': train_accuracies, 'train_losses': train_losses,

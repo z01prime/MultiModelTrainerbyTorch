@@ -67,7 +67,7 @@ class RealTimeDetector:
         pred_softmax = F.softmax(pred_logits, dim=1)
 
         # 获取 Top-N 预测结果
-        top_n = torch.topk(pred_softmax, 5)
+        top_n = torch.topk(pred_softmax, min(5,len(self.idx_to_labels)))
         pred_ids = top_n[1].cpu().detach().numpy().squeeze()
         confs = top_n[0].cpu().detach().numpy().squeeze()
 
