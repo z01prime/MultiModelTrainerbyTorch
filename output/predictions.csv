@@ -1,0 +1,40 @@
+Class,Confidence (%)
+Apple___Apple_scab,91.701485
+Grape___Black_rot,4.343462
+Tomato___Early_blight,3.8981512
+Tomato___Septoria_leaf_spot,0.028914446
+Grape___Esca_(Black_Measles),0.024633255
+Tomato___Late_blight,0.0029665679
+"Pepper,_bell___Bacterial_spot",0.00021110907
+Cherry___healthy,9.656875e-05
+Potato___Early_blight,5.4152184e-05
+Potato___Late_blight,1.9062214e-05
+Tomato___Bacterial_spot,5.5145383e-06
+Peach___Bacterial_spot,5.0994818e-06
+Soybean___healthy,3.2734497e-06
+Apple___Black_rot,1.0647178e-06
+Background_without_leaves,4.7488237e-07
+"Pepper,_bell___healthy",3.8894518e-07
+Blueberry___healthy,1.4053838e-07
+Tomato___Leaf_Mold,4.9069538e-08
+Raspberry___healthy,4.846309e-08
+Strawberry___healthy,4.0553026e-08
+Corn___Common_rust,3.717382e-08
+Grape___Leaf_blight_(Isariopsis_Leaf_Spot),3.549018e-08
+Strawberry___Leaf_scorch,1.8904247e-08
+Apple___Cedar_apple_rust,1.5195177e-08
+Squash___Powdery_mildew,1.4738406e-08
+Grape___healthy,1.0267403e-08
+Apple___healthy,8.45173e-09
+Tomato___Tomato_Yellow_Leaf_Curl_Virus,2.4311098e-09
+Corn___Northern_Leaf_Blight,8.7407764e-10
+Corn___Cercospora_leaf_spot Gray_leaf_spot,2.2625182e-10
+Corn___healthy,1.6117452e-10
+Cherry___Powdery_mildew,1.1698566e-10
+Tomato___Target_Spot,5.379357e-11
+Orange___Haunglongbing_(Citrus_greening),1.1902769e-11
+Tomato___Tomato_mosaic_virus,6.449256e-12
+Tomato___healthy,7.2982375e-13
+Potato___healthy,2.1068816e-13
+Tomato___Spider_mites Two-spotted_spider_mite,1.1075878e-13
+Peach___healthy,3.8827523e-14
