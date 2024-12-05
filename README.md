@@ -6,8 +6,8 @@
 
 ### 软件环境 (Software Environment)
 以下是代码运行所需的软件版本：
-- **操作系统 (OS):** Ubuntu 20.04 / Windows 10 / macOS Ventura 13.0
-- **Python 版本 (Python Version):** Python 3.8+
+- **操作系统 (OS):** win-64
+- **Python 版本 (Python Version):** Python 3.9+
 - **依赖库 (Dependencies):**
   - **PyTorch:** `torch==2.5.1+cu121`
   - **TorchAudio:** `torchaudio==2.5.1+cu121`
