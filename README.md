@@ -26,7 +26,7 @@
  ```
 
 ### 硬件平台 (Hardware Platform)
-- **GPU:** NVIDIA GeForce RTX 3050 (4 GB 显存) 
+- **GPU:** NVIDIA GeForce RTX 3050
 
 ### GPU 支持 (GPU Support)
 - 本代码支持 GPU 加速，训练时会自动检测并使用 GPU。如果系统中没有可用 GPU，将回退到 CPU。
