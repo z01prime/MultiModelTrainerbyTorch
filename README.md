@@ -172,7 +172,7 @@ dataset_dir/
 
 + `--dataset_dir`：数据集所在目录的路径，**必填**。该目录需要包含 `train` 和 `val` 子目录，分别用于训练集和验证集。
 + `--models`：需要训练的模型列表，**可选**，默认使用 `resnet18`。支持的模型包括 `resnet18`, `resnet50`, `mobilenet_v2`, `efficientnet_b0`, `densenet121` 等。
-+ `--batch_size`：训练时的 batch 大小，默认为 `32`。
++ `--batch_size`：训练时的 batch 大小，默认为 `16`。
 + `--epochs`：训练的轮数，默认为 `5`。
 
 命令行示例
@@ -231,14 +231,6 @@ python train.py --dataset_dir ./leaf_diseases --models resnet18 resnet50 --batch
 ```bash
 python image_classifier.py --model .\checkpoints\resnet18_5-best.pth --labels idx_to_labels.npy --image_path .\test_img\test.jpg --no-save --font SimHei.ttf
 ```
-
-参数说明
-
-+ `--model_path`：预训练模型的路径，例如 `checkpoints/resnet18-20n.pth`。
-+ `--idx_to_labels_path`：类别索引到标签的映射文件路径（例如 `idx_to_labels.npy`）。
-+ `--img_path`：待分类的图片文件路径，例如 `test_img/xiua.jpg`。
-+ `--save_results`：是否保存预测结果（默认为 `True`）。如果设置为 `False`，则不会保存图像和 CSV 文件。
-+ `--font_path`：字体文件路径，默认是 `'SimHei.ttf'`，如果没有该字体文件，会使用默认字体。
 
 输出结果
 
