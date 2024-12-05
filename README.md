@@ -2,6 +2,54 @@
 
 本项目提供了一个使用[PlantVillage(with augmentation)](https://data.mendeley.com/datasets/tywbtsjrjv/1) 数据集的训练框架，支持在图像分类任务中使用多种预训练模型进行训练。脚本支持训练多个模型，自动保存每个模型的最佳表现，并绘制多模型训练的对比图 。
 
+## 环境和硬件平台 (Environment and Hardware Platform)
+
+### 软件环境 (Software Environment)
+以下是代码运行所需的软件版本：
+- **操作系统 (OS):** Ubuntu 20.04 / Windows 10 / macOS Ventura 13.0
+- **Python 版本 (Python Version):** Python 3.8+
+- **依赖库 (Dependencies):**
+  - **PyTorch:** `torch==2.5.1+cu121`
+  - **TorchAudio:** `torchaudio==2.5.1+cu121`
+  - **TorchVision:** `torchvision==0.20.1+cu121`
+  - **NumPy:** `numpy==1.26.3`
+  - **Pandas:** `pandas==2.2.3`
+  - **Matplotlib:** `matplotlib==3.9.2`
+  - **OpenCV:** `opencv-python==4.10.0.84`
+  - **Pillow:** `pillow==10.2.0`
+  - **TQDM:** `tqdm==4.67.0`
+  - **Scikit-learn:** `scikit-learn==1.5.2`
+
+可使用以下命令安装所有依赖：
+ ```bash
+ pip install -r requirements.txt
+ ```
+
+### 硬件平台 (Hardware Platform)
+- **GPU:** NVIDIA GeForce RTX 3050 (4 GB 显存) 
+
+### GPU 支持 (GPU Support)
+- 本代码支持 GPU 加速，训练时会自动检测并使用 GPU。如果系统中没有可用 GPU，将回退到 CPU。
+- **CUDA 支持版本:** CUDA 12.1  
+
+支持以下模型的训练：
+
+1. **ResNet18** (`resnet18`)  
+2. **ResNet50** (`resnet50`)  
+3. **MobileNetV2** (`mobilenet_v2`)  
+4. **EfficientNet-B0** (`efficientnet_b0`)  
+5. **DenseNet121** (`densenet121`)  
+
+如果需要支持更多的模型，可以在 `initialize_model` 函数中按照以下格式添加对应模型的初始化逻辑：
+
+```python
+elif model_name == '新模型名':
+    model = 新模型模块(pretrained=True)
+    model.classifier 或 model.fc = nn.Linear(输入特征数, num_classes)
+```
+
+添加后，可以通过命令行参数指定新模型进行训练。
+
 ## 数据集分割 (data_split)
 
 ### 介绍
@@ -172,16 +220,16 @@ python train.py --dataset_dir ./leaf_diseases --models resnet18 resnet50 --batch
 通过命令行运行图像分类
 
 1. 在终端中使用 `python` 命令运行 `image_classifier.py` 脚本，并传递以下参数：
-   - `--model_path`：预训练模型路径。
-   - `--idx_to_labels_path`：类别索引到标签的映射文件路径。
-   - `--img_path`：待分类的图片路径。
-   - `--save_results`：是否保存预测结果（默认为 `True`）。
-   - `--font_path`：字体文件路径（默认为 `'SimHei.ttf'`）。
+   - `--image_path`：待分类图片的路径。
+   - `--model`：模型检查点文件的路径（必需）。
+   - `--labels`：类别索引到标签的映射文件路径（默认为 `'idx_to_labels.npy'`）。
+   - `--font`：字体文件路径（默认为 `'SimHei.ttf'`），用于在图片上标注分类结果。
+   - `--no-save`：是否禁用保存预测结果（默认为 `False`，添加此参数后不会保存结果）。
 
 例如：
 
 ```bash
-python image_classifier.py --model_path "checkpoints/resnet18-20.pth" --idx_to_labels_path "idx_to_labels.npy" --img_path "test_img/test.jpg" --save_results True --font_path "SimHei.ttf"
+python image_classifier.py --model .\checkpoints\resnet18_5-best.pth --labels idx_to_labels.npy --image_path .\test_img\test.jpg --no-save --font SimHei.ttf
 ```
 
 参数说明
