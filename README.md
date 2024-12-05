@@ -232,7 +232,7 @@ python image_classifier.py --model_path "checkpoints/resnet18-20.pth" --idx_to_l
 以下示例展示了如何使用脚本：
 
 ```bash
-python image_detect.py --model_path ./model.pth --idx_to_labels_path ./idx_to_labels.npy --camera_id 0 --font_path ./SimHei.ttf --device cuda
+python .\camera_classifier.py --model_path .\checkpoints\resnet18_5-best.pth --idx_to_labels_path ./idx_to_labels.npy --camera_id 0 --font_path ./SimHei.ttf --device cuda
 ```
 
 脚本工作流程：
