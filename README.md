@@ -1,6 +1,6 @@
 # MultiModelTrainerbyTorch
 
-本项目提供了一个使用[PlantVillage(with augmentation)](https://data.mendeley.com/datasets/tywbtsjrjv/1) 数据集的训练框架，支持在图像分类任务中使用多种预训练模型进行训练。脚本支持训练多个模型，自动保存每个模型的最佳表现，并绘制多模型训练的对比图 。
+本项目提供了基于pytorch的训练框架，支持在图像分类任务中使用多种预训练模型进行训练。提供一个分割单一文件夹结构数据集(如[PlantVillage(with augmentation)](https://data.mendeley.com/datasets/tywbtsjrjv/1)或者[plantdoc](https://www.kaggle.com/datasets/nirmalsankalana/plantdoc-dataset))的脚本并支持训练多个模型，自动保存每个模型的最佳表现，并绘制多模型训练的对比图 。
 
 ## 环境和硬件平台 (Environment and Hardware Platform)
 
