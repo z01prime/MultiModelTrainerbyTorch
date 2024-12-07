@@ -30,13 +30,15 @@ def get_transforms():
         transforms.RandomResizedCrop(224),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        transforms.Normalize([0.4635, 0.4889, 0.4080], [0.1755, 0.1484, 0.1919])
+        # transforms.Normalize([0.4635, 0.4889, 0.4080], [0.1755, 0.1484, 0.1919])
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
     test_transform = transforms.Compose([
         transforms.Resize(256),
         transforms.CenterCrop(224),
         transforms.ToTensor(),
-        transforms.Normalize([0.4635, 0.4889, 0.4080], [0.1755, 0.1484, 0.1919])
+        # transforms.Normalize([0.4635, 0.4889, 0.4080], [0.1755, 0.1484, 0.1919])
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
     return train_transform, test_transform
 
@@ -269,15 +271,8 @@ if __name__ == '__main__':
     parser.add_argument('--dataset_dir', type=str, required=True, help="数据集文件路径")
     parser.add_argument('--models', nargs='+', default=['resnet18'],
                         help="需要训练的模型列表(如resnet18 resnet50 efficientnet_b0).")
-    parser.add_argument('--batch_size', type=int, default=16, help="训练的Batch size(默认32)")
+    parser.add_argument('--batch_size', type=int, default=16, help="训练的Batch size(默认16)")
     parser.add_argument('--epochs', type=int, default=5, help="训练的轮数(默认5轮)")
     args = parser.parse_args()
     print(torch.cuda.is_available())
     main(args)
-
-"""
-python train.py --dataset_dir leaf_diseasesA_split --models resnet18
-python train.py --dataset_dir leaf_diseasesA_split --models resnet18 resnet50 alexnet
-python train.py --dataset_dir leaf_diseasesA_split --models resnet18 alexnet --batch_size 16 --epochs 20
-
-"""
