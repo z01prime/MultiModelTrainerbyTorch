@@ -9,9 +9,9 @@
 - **操作系统 (OS):** win-64
 - **Python 版本 (Python Version):** Python 3.9+
 - **依赖库 (Dependencies):**
-  - **PyTorch:** `torch==2.5.1+cu121`
-  - **TorchAudio:** `torchaudio==2.5.1+cu121`
-  - **TorchVision:** `torchvision==0.20.1+cu121`
+  - **PyTorch:** `torch==2.5.1+cu121`/`torch==2.5.1+cxx11.abi`
+  - **TorchAudio:** `torchaudio==2.5.1+cu121`/`0.20.1+cxx11.abi`
+  - **TorchVision:** `torchvision==0.20.1+cu121`/`2.5.1+cxx11.abi`
   - **NumPy:** `numpy==1.26.3`
   - **Pandas:** `pandas==2.2.3`
   - **Matplotlib:** `matplotlib==3.9.2`
@@ -19,18 +19,21 @@
   - **Pillow:** `pillow==10.2.0`
   - **TQDM:** `tqdm==4.67.0`
   - **Scikit-learn:** `scikit-learn==1.5.2`
+  - ***intel-extension-for-pytorch** `intel-extension-for-pytorch==2.5.10+xpu`
+*仅Intel显卡需要安装
 
 可使用以下命令安装所有依赖：
  ```bash
  pip install -r requirements.txt
  ```
+*支持Intel Arc独立显卡（A系列和B系列），如果使用这些显卡使用安装依赖时将文件`requirements.txt`替换为`requirementsforArc.txt`
 
 ### 硬件平台 (Hardware Platform)
-- **GPU:** NVIDIA GeForce RTX 3050
+- **GPU:** lntel Arc B580 Graphics/NVIDIA GeForce RTX 3050
 
 ### GPU 支持 (GPU Support)
-- 本代码支持 GPU 加速，训练时会自动检测并使用 GPU。如果系统中没有可用 GPU，将回退到 CPU。
-- **CUDA 支持版本:** CUDA 12.1  
+- 本代码支持Intel和NVIDIA的GPU加速，训练时会自动检测并使用GPU。如果系统中没有可用GPU，将回退到CPU。
+- **CUDA 支持版本:** CUDA 12.1
 
 支持以下模型的训练：
 
