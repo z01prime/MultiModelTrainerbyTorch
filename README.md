@@ -253,7 +253,7 @@ python image_classifier.py --model .\checkpoints\resnet18_5-best.pth --labels id
 + 实时检测并显示摄像头输入的视频帧。
 + 使用预训练模型进行目标分类。
 + 显示 Top-5 预测类别及其置信度。
-+ 支持设备选择（`cpu` 或 `cuda`）。
++ 支持设备选择（`cpu` 、 `xpu` 或 `cuda`）。
 + 可通过命令行参数自定义输入选项。
 
 ### 使用方法
