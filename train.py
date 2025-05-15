@@ -20,8 +20,12 @@ def configure_environment():
     plt.rcParams['axes.unicode_minus'] = False
     os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
     warnings.filterwarnings("ignore")
-    return torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-
+    if torch.cuda.is_available():
+        return 'cuda:0'
+    elif torch.xpu.is_available():
+        return 'xpu'
+    else:
+        return 'cpu'
 
 # --- 数据集和预处理 ---
 def get_transforms():
@@ -271,8 +275,8 @@ if __name__ == '__main__':
     parser.add_argument('--dataset_dir', type=str, required=True, help="数据集文件路径")
     parser.add_argument('--models', nargs='+', default=['resnet18'],
                         help="需要训练的模型列表(如resnet18 resnet50 efficientnet_b0).")
-    parser.add_argument('--batch_size', type=int, default=16, help="训练的Batch size(默认16)")
+    parser.add_argument('--batch_size', type=int, default=32, help="训练的Batch size(默认32)")
     parser.add_argument('--epochs', type=int, default=5, help="训练的轮数(默认5轮)")
     args = parser.parse_args()
-    print(torch.cuda.is_available())
+    # print(torch.cuda.is_available())
     main(args)
