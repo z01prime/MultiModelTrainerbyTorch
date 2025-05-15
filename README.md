@@ -30,7 +30,7 @@
 *支持Intel Arc独立显卡（A系列和B系列），如果使用这些显卡使用安装依赖时将文件`requirements.txt`替换为`requirementsforArc.txt`
 
 ### 硬件平台 (Hardware Platform)
-- **GPU:** lntel Arc B580 Graphics/NVIDIA GeForce RTX 3050
+- **GPU:** lntel Arc B580/NVIDIA GeForce RTX 3050
 
 ### GPU 支持 (GPU Support)
 - 本代码支持Intel和NVIDIA的GPU加速，训练时会自动检测并使用GPU。如果系统中没有可用GPU，将回退到CPU。
