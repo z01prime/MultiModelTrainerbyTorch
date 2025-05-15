@@ -19,7 +19,7 @@
   - **Pillow:** `pillow==10.2.0`
   - **TQDM:** `tqdm==4.67.0`
   - **Scikit-learn:** `scikit-learn==1.5.2`
-  - ***intel-extension-for-pytorch** `intel-extension-for-pytorch==2.5.10+xpu`
+  - ***intel-extension-for-pytorch:** `intel-extension-for-pytorch==2.5.10+xpu`
 
 *仅Intel显卡需要安装
 
